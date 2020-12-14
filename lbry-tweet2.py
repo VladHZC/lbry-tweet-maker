@@ -1,6 +1,7 @@
 import requests
 import tweepy
 import json 
+from pathlib import Path
 
 consumer_key = ''
 consumer_secret = ''
@@ -24,6 +25,10 @@ json = requests.post("http://localhost:5279", json={"method": "claim_search", "p
                                                                                          "document"], 
                                                                                          "order_by": ["release_time"]}}).json()
 
+
+Path("last_claim_id.txt").touch()
+lastClaimId = open("last_claim_id.txt", "r").read()
+
 for item in json["result"]["items"]:
     claimId = item["claim_id"]
     title = item["value"]["title"]
@@ -31,8 +36,13 @@ for item in json["result"]["items"]:
     name = item['name']
     #tweet = item["value"]["description"]
     print(url + " / " + title + " / " + claimId)
-    
-api.update_status('https://open.lbry.com/'+ name + "#" + claimId)
+    break
+
+if(claimId != lastClaimId):
+    api.update_status('https://open.lbry.com/'+ name + "#" + claimId)
+    f = open("last_claim_id.txt", "w")
+    f.write(claimId)
+    f.close()
 
     # 1) Make it in a way that you just need to click so it can update the twitter
     # 2) Make script monitor lbry channel to post update twitter 
