@@ -1,8 +1,8 @@
-# lbry-tweet-maker
+# lbry-tweet-maker (on progress)
 
 ## Tools for boosting your LBRY activity with Twitter 
 
-### 1) Auto-Tweet
+### 1) Auto-Tweet 
 
 Auto-Tweet your last post every time LBRY app starts 
 
