@@ -12,4 +12,4 @@ Post your entire LBRY Channel, post by post every X hours
 For users that never posted their LBRY videos on Twitter 
 
 ** Twitter developer account is required for API KEYS configuration
-** Set your keys in config file 
+** Set your twitter keys and channel in config file 
