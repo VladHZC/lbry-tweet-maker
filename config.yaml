@@ -1,4 +1,4 @@
-consumer_key : 
+consumer_key : # place your keys available on your twitter developers account page 
 consumer_secret : 
 access_token : 
 access_token_secret : 
