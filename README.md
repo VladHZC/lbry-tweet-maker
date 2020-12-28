@@ -16,9 +16,11 @@
 
 ``` C:\Users\**CURRENT USER**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup ```
 
-** LBRY Desktop app on windows startup set and python on PATH are also required
-
-** I expect to find a method to run the script everytime the user runs the LBRY app
+> ** LBRY Desktop app on windows startup set and python on PATH are also required
+>
+>** I expect to find a method to run the script everytime the user runs the LBRY app
+>
+>** I expect to use the description of the post as tweet text before the post link in the future
 
 ## 2) Channel Posting ( comming ) 
 ---
