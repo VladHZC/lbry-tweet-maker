@@ -16,7 +16,7 @@
 
 ``` C:\Users\**CURRENT USER**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup ```
 
-** LBRY Desktop app on windows startup set is also required
+** LBRY Desktop app on windows startup set and python on PATH are also required
 
 ** I expect to find a method to run the script everytime the user runs the LBRY app
 
