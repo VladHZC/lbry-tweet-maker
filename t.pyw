@@ -49,7 +49,7 @@ for item in json["result"]["items"]:
     break
 
 if(claimId != lastClaimId):
-    api.update_status('Check my most recent LBRY post, escape big tech, join us ''https://open.lbry.com/'+ name + "#" + claimId)
+    api.update_status('Check my most recent LBRY post, join us ''https://open.lbry.com/'+ name + "#" + claimId)
     f = open("last_claim_id.txt", "w")
     f.write(claimId)
     f.close()
