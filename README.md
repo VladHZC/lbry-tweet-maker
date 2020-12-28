@@ -13,6 +13,7 @@
 - **Auto-Tweet your last post everytime Windows Starts** 
 
 ** Save the files somewhere in your PC and then copy and paste a shortcut of the script on this folder
+
 ``` C:\Users\**CURRENT USER**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup ```
 
 ** LBRY Desktop app on windows startup set is also required
