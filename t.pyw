@@ -40,7 +40,7 @@ for number_of_tries in range(5):
         title = item["value"]["title"]
         url = item["permanent_url"]
         name = item['name']
-        tweet = item["value"]["description"]
+     
         break
 
     Path("last_claim_id.txt").touch()
