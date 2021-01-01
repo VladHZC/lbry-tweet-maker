@@ -21,7 +21,6 @@ try:
     auth.set_access_token(access_token,access_token_secret)
     api = tweepy.API(auth)
 except Exception as e: 
-    print(e)
     exit(-1)
 
 
@@ -33,7 +32,6 @@ for number_of_tries in range(5):
                                                                                          "order_by": ["release_time"]}}).json()
         items = json["result"]["items"]
     except:
-        print("Is the LBRY app running?")
         time.sleep(5)
         continue
 
@@ -43,24 +41,18 @@ for number_of_tries in range(5):
         url = item["permanent_url"]
         name = item['name']
         tweet = item["value"]["description"]
-        print("Newest LBRY post: " + url + " / " + title + " / " + claimId)
         break
 
     Path("last_claim_id.txt").touch()
     lastClaimId = open("last_claim_id.txt", "r").read()
 
     if(claimId != lastClaimId):
-        print("Tweeting new post on twitter")
         try:
             api.update_status('Check my most recent LBRY post, join us ''https://open.lbry.com/'+ name + "#" + claimId)
             f = open("last_claim_id.txt", "w")
             f.write(claimId)
             f.close()
-            print("Job done :)")
         except: 
-            print("Tweepy exception. Is the config.yaml correctly configured?")
             exit(-1)
-    else:
-        print("Already posted")
 
     exit(0)
