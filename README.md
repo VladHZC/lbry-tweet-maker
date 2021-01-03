@@ -10,9 +10,9 @@ Lbry-tweet
 ---
 - **Tweet your last LBRY post**  
 
-## 1) Auto-Tweet (for Windows) 
+## 1.a) Auto-Tweet (for Windows) 
 ---
-- **Auto-Tweet your last post everytime Windows Starts** 
+- **Auto-Tweet your last post everytime Windows starts** 
 
 ** Save the [files](https://github.com/VladHZC/lbry-tweet-maker) somewhere in your PC and then copy and paste a shortcut of the script on this folder
 
@@ -23,6 +23,24 @@ Lbry-tweet
 >** I expect to find a method to run the script everytime the user runs the LBRY app
 >
 >** I expect to use the description of the post as tweet text before the post link in the future
+
+## 1.b) Auto-Tweet (for Linux) 
+
+Open and edit [crontab](https://linuxcommandlibrary.com/man/crontab):
+
+``` crontab -e ```
+
+Add the following lines to either: 
+
+**Check and Auto-Tweet your last post on every system start**
+
+``` @reboot python3 [part to python script] ```
+
+**Check and Auto-Tweet your last post every hour**
+
+``` @hourly python3 [part to python script] ```
+
+The ```[part to python script]``` could be for example ```/home/supermario/t.py```
 
 ## 2) Channel Posting ( comming ) 
 ---
