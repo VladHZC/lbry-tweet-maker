@@ -10,18 +10,24 @@
 
 ## 1.a) Auto-Tweet (for Windows) 
 ---
-- **Auto-Tweet your last post everytime Windows starts** 
 
-** Save the [files](https://github.com/VladHZC/lbry-tweet-maker) somewhere in your PC and then copy and paste a shortcut of the script on this folder
+- **Auto-Tweet your last post everytime Windows Starts** 
+Every time you start windows the script will autorun and post your last LBRY post (assuming LBRY is set to start along with windows startup) with a pre-made text before the link (you can change the text in the script if you wnat) 
 
-``` C:\Users\**CURRENT USER**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup ```
+[![Download](https://i.ibb.co/RYxvyf3/windows-button-download-1.png)](https://github.com/VladHZC/lbry-tweet-maker)
+### Instructions:
+---
+1) Save the [files](https://github.com/VladHZC/lbry-tweet-maker) somewhere in your PC and then copy and paste a shortcut of the script on this folder
 
-> ** LBRY Desktop app on windows startup set and python on PATH are also required
->
->** I expect to find a method to run the script everytime the user runs the LBRY app
->
->** I expect to use the description of the post as tweet text before the post link in the future
+		``` C:\Users\**CURRENT USER**\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup ```
 
+2) Set LBRY Desktop app to start along with windows startup set 
+
+		OBS: python on PATH are also required
+		
+3) Set your twitter keys (offered to you on your twitter dev account) and channel in config.yaml file
+
+![](https://i.ibb.co/6FLcwPN/Screenshot-1.png)
 ## 1.b) Auto-Tweet (for Linux) 
 
 Open and edit [crontab](https://linuxcommandlibrary.com/man/crontab):
