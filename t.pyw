@@ -7,7 +7,7 @@ import time
 
 
 yaml_file = open("config.yaml", 'r')
-yaml_content = yaml.load(yaml_file)
+yaml_content = yaml.load(yaml_file, Loader = yaml.FullLoader)
 
 consumer_key = yaml_content["consumer_key"]
 consumer_secret = yaml_content["consumer_secret"]
@@ -48,7 +48,7 @@ for number_of_tries in range(5):
 
     if(claimId != lastClaimId):
         try:
-            api.update_status('Check my most recent LBRY post, join us ''https://open.lbry.com/'+ name + "#" + claimId)
+            api.update_status('I am free at LBRY, check my last content and join us '"https://lbry.tv/"+ channelId +"/"+ name+ ":"+claimId)
             f = open("last_claim_id.txt", "w")
             f.write(claimId)
             f.close()
