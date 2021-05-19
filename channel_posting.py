@@ -25,7 +25,7 @@ def get_twitter_api(tweepy, consumer_key, consumer_secret,access_token,access_to
         print(e)
         exit(-1)
 
-        
+
 def get_page(page, channelId = channelId, page_size = 50):
     json = requests.post("http://localhost:5279", json={"method": "claim_search", "params": {"channel": channelId,"page_size": page_size,"page":page,
                                                                                     "stream_types": ["video",
@@ -34,7 +34,13 @@ def get_page(page, channelId = channelId, page_size = 50):
     items = json["result"]["items"]
     return items
 
-
+def get_all(page=1):
+    all_items = get_page(page)
+    if len(all_items) > 0:
+        new_page = page + 1
+        return all_items + get_all(new_page)
+    else:
+        return all_items
     
 
 
