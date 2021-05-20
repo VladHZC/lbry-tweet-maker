@@ -47,3 +47,18 @@ def get_all_pages(page=1):
 def get_db_conn(dbName,sqlite3 = sqlite3):
     conn = sqlite3.connect(dbName)
     return conn
+
+    
+def save_in_db(conn, all_items):
+    cur = conn.cursor()
+    for item in all_items:
+        claimId = item["claim_id"]
+        title = item["value"]["title"]
+        url = item["permanent_url"]
+        name = item['name']
+        sql = f'INSERT INTO posts (claimId, title, url, name, posted) VALUES ("{claimId}","{title}","{url}","{name}", 0);'
+        print('salvei')
+        print(sql)
+        cur.execute(sql)
+        conn.commit()
+    conn.close()
