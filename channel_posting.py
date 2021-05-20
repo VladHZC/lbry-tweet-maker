@@ -43,3 +43,7 @@ def get_all_pages(page=1):
         return all_items
     
 
+# Return a sqlite database
+def get_db_conn(dbName,sqlite3 = sqlite3):
+    conn = sqlite3.connect(dbName)
+    return conn
