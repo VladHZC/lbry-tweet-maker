@@ -14,7 +14,8 @@ consumer_secret = yaml_content["consumer_secret"]
 access_token = yaml_content["access_token"]
 access_token_secret = yaml_content["access_token_secret"]
 channelId = yaml_content["channelID"]
-databaseName = 'seila.db'
+databaseName = 'database copy 2.sqlite'
+# databaseName = 'test.db'
 
 def get_twitter_api(tweepy, consumer_key, consumer_secret,access_token,access_token_secret):
     try:
@@ -64,3 +65,19 @@ def save_in_db(conn, all_items):
     conn.close()
 
 
+def check_if_database_is_empty(conn):
+    cur = conn.cursor()
+    query = 'SELECT * FROM posts'
+    result = cur.execute(query)
+    if not result.fetchall():
+        return True
+    return False
+
+def call():
+    conn = get_db_conn(databaseName)
+    is_db_empty = check_if_database_is_empty(conn)
+    if is_db_empty:
+        all_items = get_all_pages()
+        save_in_db(conn,all_items)
+        print('All posts saved!')
+    
