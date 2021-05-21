@@ -95,3 +95,20 @@ def update_db(conn, post_id):
     except Exception as e:
         print(e)
         raise e
+
+    
+def call():
+    conn = get_db_conn(databaseName)
+    is_db_empty = check_if_database_is_empty(conn)
+    if is_db_empty:
+        all_items = get_all_pages()
+        save_in_db(conn,all_items)
+        print('All posts saved!')
+    cur = conn.cursor()
+    data = get_post_from_db(cur)
+    api = get_twitter_api()
+    post_tweet(data,api)
+    update_db(conn, data[0])
+
+
+call()
