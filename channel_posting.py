@@ -2,8 +2,6 @@ import requests
 import tweepy
 import json 
 import yaml
-from pathlib import Path
-from time import sleep
 import sqlite3
 
 yaml_file = open("config.yaml", 'r')
@@ -14,10 +12,9 @@ consumer_secret = yaml_content["consumer_secret"]
 access_token = yaml_content["access_token"]
 access_token_secret = yaml_content["access_token_secret"]
 channelId = yaml_content["channelID"]
-databaseName = 'database copy 2.sqlite'
-# databaseName = 'test.db'
+databaseName = 'database.sqlite'
 
-def get_twitter_api(tweepy, consumer_key, consumer_secret,access_token,access_token_secret):
+def get_twitter_api(tweepy=tweepy, consumer_key=consumer_key, consumer_secret=consumer_secret,access_token=access_token,access_token_secret=access_token_secret):
     try:
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token,access_token_secret)
@@ -80,4 +77,13 @@ def get_post_from_db(cursor):
     return result
 
 
-    
+def post_tweet(data, api):
+    post_id = data[0]
+    claimId = data[1]
+    title = data[2]
+    url = data[3]
+    name = data[4]
+    isPosted = data[5]
+    api.update_status(f'I am free at LBRY, check my last content and join us https://lbry.tv/{channelId}/{name}:{claimId}')
+    print('Posted sucessfully')
+
