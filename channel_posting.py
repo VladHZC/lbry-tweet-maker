@@ -62,7 +62,6 @@ def save_in_db(conn, all_items):
         print(sql)
         cur.execute(sql)
     conn.commit()
-    conn.close()
 
 
 def check_if_database_is_empty(conn):
@@ -73,11 +72,12 @@ def check_if_database_is_empty(conn):
         return True
     return False
 
-def call():
-    conn = get_db_conn(databaseName)
-    is_db_empty = check_if_database_is_empty(conn)
-    if is_db_empty:
-        all_items = get_all_pages()
-        save_in_db(conn,all_items)
-        print('All posts saved!')
+
+def get_post_from_db(cursor):
+    query = 'SELECT * FROM posts WHERE posted = 0 limit 1;'
+    response = cursor.execute(query)
+    result = response.fetchone()
+    return result
+
+
     
