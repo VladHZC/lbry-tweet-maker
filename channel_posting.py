@@ -87,3 +87,11 @@ def post_tweet(data, api):
     api.update_status(f'I am free at LBRY, check my last content and join us https://lbry.tv/{channelId}/{name}:{claimId}')
     print('Posted sucessfully')
 
+def update_db(conn, post_id):
+    try:
+        query = f'UPDATE posts SET posted = 1 WHERE id = {post_id};'
+        conn.cursor().execute(query)
+        conn.commit()
+    except Exception as e:
+        print(e)
+        raise e
