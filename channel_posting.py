@@ -14,7 +14,7 @@ consumer_secret = yaml_content["consumer_secret"]
 access_token = yaml_content["access_token"]
 access_token_secret = yaml_content["access_token_secret"]
 channelId = yaml_content["channelID"]
-databaseName = 'test.sqlite'
+databaseName = 'seila.db'
 
 def get_twitter_api(tweepy, consumer_key, consumer_secret,access_token,access_token_secret):
     try:
@@ -60,5 +60,7 @@ def save_in_db(conn, all_items):
         print('salvei')
         print(sql)
         cur.execute(sql)
-        conn.commit()
+    conn.commit()
     conn.close()
+
+
