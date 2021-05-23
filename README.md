@@ -46,12 +46,13 @@ Add the following lines to either:
 
 The ```[part to python script]``` could be for example ```/home/supermario/t.py```
 
-## 2) Channel Posting ( comming ) 
+## 2) Channel Posting ( beta testing ) 
 ---
 - Post your entire LBRY Channel, post by post every X hours 
 (For users that never posted their LBRY videos on Twitter) 
 
-
+```python3 /path/to/script/channel_posting.py```
+the ```/path/to/script/``` could be ```/home/user/```
 ---
 ** Twitter developer account is required for API KEYS configuration
 ** Set your twitter keys and channel in config.yaml file 
